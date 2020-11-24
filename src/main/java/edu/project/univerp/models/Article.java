@@ -17,6 +17,15 @@ public class Article {
     private String text;
     private int views;
 
+    public Article() {
+    }
+
+    public Article(String title, String anons, String text) {
+        this.title = title;
+        this.anons = anons;
+        this.text = text;
+    }
+
     public Long getId() {
         return id;
     }
