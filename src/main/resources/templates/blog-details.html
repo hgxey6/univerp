@@ -4,23 +4,27 @@
     <title>Blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="theme-color" content="#563d7c">
+
 </head>
+
 <body>
 <header th:insert="blocks/head"></header>
 
-<!--Контейнер -->
-<div class="container mt-5">
-    <div th:each="element : ${article}" class="alert alert-info mt-2">
-        <h1 th:text="${element.title}"/>
+<div class="jumbotron">
+    <div th:each="element : ${article}" class="container">
+        <h2 th:text="${element.title}" class="display-4"></h2>
         <p th:text="${element.text}"/>
-        <p> <strong>Number of views</strong> <span th:text="${element.views}"/></p>
-        <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-warning">Edit</a><br><br>
+        <p><strong>Number of views</strong> <span th:text="${element.views}"/></p>
+
+        <p><a th:href="'/blog/' + ${element.id} + '/edit'"
+              class="btn btn-primary btn-lg" role="button">Edit »</a></p>
+
         <form th:action="'/blog/' + ${element.id} + '/delete'" method="post">
-            <button class="btn btn-warning" type="submit">Delete</button>
+            <button class="btn btn-primary btn-lg" type="submit">Delete »</button>
         </form>
     </div>
 </div>
-
 
 <div th:insert="blocks/footer"></div>
 </body>

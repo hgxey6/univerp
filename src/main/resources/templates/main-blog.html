@@ -8,16 +8,13 @@
 <body>
 <header th:insert="blocks/head"></header>
 
-<!--Контейнер -->
-<div class="container mt-5">
-    <h1>News</h1>
-    <div th:each="element : ${articles}" class="alert alert-info mt-2">
-        <h3 th:text="${element.title}"/>
+<div th:each="element : ${articles}" class="jumbotron">
+    <div class="container">
+        <h2 th:text="${element.title}" class="display-4"></h2>
         <p th:text="${element.anons}"/>
-        <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">Read Article</a>
+        <p><a class="btn btn-primary btn-lg" th:href="'/blog/' + ${element.id}" role="button">Learn more »</a></p>
     </div>
 </div>
-
 
 <div th:insert="blocks/footer"></div>
 </body>

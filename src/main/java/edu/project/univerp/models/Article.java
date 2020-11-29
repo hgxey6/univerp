@@ -1,5 +1,7 @@
 package edu.project.univerp.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,7 @@ public class Article {
 
     private String title;
     private String anons;
+    @Type(type = "org.hibernate.type.TextType")
     private String text;
     private int views;
 
